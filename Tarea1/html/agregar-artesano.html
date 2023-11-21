@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Registro de Artesanos</title>
+    <link rel="stylesheet" type="text/css" href="../css/agregar-artesano.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/css/multi-select-tag.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    <body onload="resetSelection()">
+    <div class="rectangle detalles" style="width: 420px; margin: auto; background: lightslategray; color: black;">
+      <h1 style="width: 400px; margin: 0 auto; background: rgb(106, 156, 177); color: black;" >Registro Artesano(a)</h1>
+      <div class="main-container">
+          <div id="val-box" hidden>
+              <h2 id="val-msg"></h2>
+              <ul id="val-list"></ul>
+          </div>
+          <form name="myForm" method="post" enctype="multipart/form-data">
+              <label for="region">Region</label><br>
+              <select id="region" size="1" onchange="makeSubmenu(this.value)" required>
+                <option value="" disabled selected>Seleccione una region</option>
+                <option value="arica">Arica y Parinacota</option>
+                <option value="tarapaca">Tarapaca</option>
+                <option value="antofagasta">Antofagasta</option>
+                <option value="atacama">Atacama</option>
+                <option value="coquimbo">Coquimbo</option>
+                <option value="valparaiso">Valparaiso</option>
+                <option value="metropolitana">Metropolitana de Santiago</option>
+                <option value="higgins">Libertador General Bernardo O'Higgins</option>
+                <option value="maule">Maule</option>
+                <option value="nuble">Ñuble</option>
+                <option value="biobio">Biobio</option>
+                <option value="araucania">La Araucania</option>
+                <option value="rios">Los Rios</option>
+                <option value="lagos">Los Lagos</option>
+                <option value="aysen">Aysen del G. Carlos Ibañez del Campo</option>
+                <option value="magallenes">Magallenes y de la Antartica Chilena</option>
+              </select>
+              <br>
+              <label for="comuna">Comuna</label><br>
+              <select id="comuna" size="1" required>
+                <option id="comuna1" value="" disabled selected>Seleccione una comuna</option>
+
+              </select>
+
+              <br>
+              
+              <label for="artesania"> Tipo artesania</label><br>
+              <select name="artesania" id="artesania" multiple required>
+              </select>
+              <br>
+              <label for="descripcion">Descripción artesanías</label><br>
+              <textarea name="descripcion" id="descripcion" rows="4" cols="50"></textarea>
+              <br>
+              <label for="files">Fotos artesanías</label><br>
+              <input type="file" name="files" id="files" multiple accept="image/*,.pdf" required>
+              <br>
+              <label for="nombre">Nombre artesano(a)</label><br>
+              <input type="text" name="nombre" id="nombre" minlength="3" maxlength="80" required>
+              <br>
+              <label for="email">Email contacto artesano(a)</label><br>
+              <input type="text" name="email" id="email" maxlength="30" required>
+              <br>
+              <label for="phone">Número celular contacto</label><br>
+              <input type="text" name="phone" id="phone" maxlength = "15">
+              <br>   
+          
+              <div class="popup">
+                <div class="botones">
+                  <button id="submit-btn" type="button" onclick="pvalidate()">Registrar Artesano</button>
+                </div>
+                <span class="popuptext" id="myPopup">¿Confirma el registro de este Artesano(a)?  
+                    
+                      <span>
+                        <button id="submit-1" type="button" onclick="pvalidate()">No, quiero volver al formulario</button>
+                      </span>
+                    
+                    <span class="popuptext" id="myPopup2">Hemos recibido el registro de Artesano(a). Muchas gracias.
+                        <br>
+                        <span>
+                          <button id="submit-2" type="button" onclick='window.location.href = "../html/index.html";'>Volver al menu</button>
+                        </span>
+                    </span>
+                    <br>
+                    <span>
+                      <button id="submit-3" type="button" onclick="pvalidate2()" >Si, confirmo</button>
+                    </span>
+
+                </span>
+              </div>
+
+          </form>
+      </div>    
+    </div>
+    <script> new MultiSelectTag('artesania')  // id artesania </script>
+    <script src="https://cdn.jsdelivr.net/gh/habibmhamadi/multi-select-tag/dist/js/multi-select-tag.js" ></script>
+    <script src="../js/agregar-artesano-validation.js" ></script>
+    
+    </body>
+    </html>
